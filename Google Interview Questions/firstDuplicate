@@ -1,0 +1,26 @@
+/* USING HASHSET */
+int solution(int[] arr) {
+    HashSet<Integer> set = new HashSet<>();
+    for(int i=0;i<arr.length;i++){
+        if(set.contains(arr[i])) return arr[i];
+        set.add(arr[i]);
+    }
+    return -1;
+}
+
+LOGIC --- 
+we make a hashset. Its proerty is that it can have only unique elemnts and duplicates are delted.
+We start putting inside element one by one from array. But when the element is already present in the set that will be the first duplicate.
+
+
+/* THIS ALSO WORKS BUT DON'T KNOW HOW */
+int solution(int[] a) {
+    for (int i:a){
+        if (a[Math.abs(i)-1]<0) return Math.abs(i);
+        a[Math.abs(i)-1]*=-1;
+    }
+    return -1;
+}
+
+
+LINK - https://app.codesignal.com/interview-practice/question/pMvymcahZ8dY4g75q/description
