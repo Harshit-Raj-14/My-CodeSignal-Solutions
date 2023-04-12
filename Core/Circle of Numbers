@@ -1,0 +1,27 @@
+int solution(int n, int firstNumber) {
+//We can get to the radially opposite element by travelling half the circumference of a circle since the number and its radially oppsite should be diameter
+///but mind that the number might go beyond the circle, so keep that case in mind
+    int circumference = n;
+    int ans = firstNumber + n/2;
+    while(ans>n-1){
+        ans-=n;
+    }
+    return ans;
+}
+
+
+
+int solution(int n, int firstNumber) {
+    return (firstNumber + n/2) % n;
+}
+
+
+
+
+int solution(int n, int firstNumber) {
+    int radius = n / 2;
+return (firstNumber < radius) ? firstNumber + radius : firstNumber - radius;
+}
+
+
+LINK - https://app.codesignal.com/arcade/code-arcade/intro-gates/vExYvcGnFsEYSt8nQ
