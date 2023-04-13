@@ -1,0 +1,31 @@
+int solution(int a, int b, int c) {
+    int ans = a^b^c;
+    return ans;
+}
+
+
+LOGIC --- Using XOR property - a^a = 0 : XOR of two same number is 0.
+
+
+
+OTHER SOLUTIONS:
+
+
+int solution(int a, int b, int c) {
+    return a == b ? c : a == c ? b : a;
+}
+
+
+
+int solution(int a, int b, int c) {
+    int value = 0;
+    if (a == b){
+        value= c;
+    }else if (b == c){
+        value= a;
+        
+    }else if (c==a){
+        value= b;
+    }
+    return value;
+}
