@@ -1,0 +1,27 @@
+boolean solution(int a, int b, int c) {
+    if(a+b==c) return true;
+    else if(a-b==c) return true;
+    else if(a*b==c) return true;
+    else if(((float)a/(float)b)==(float)(c)) return true;
+    else return false;
+}
+
+LOGIC --- we want a/b == c to be exactly true to decimal point and not downgraded to int
+So, convert a and b to float then divide and compare with float c
+
+ELEGANT SOLUTION
+boolean solution(int A, int B, int C) {
+    return A+B==C || A-B==C || A*B==C || A == B*C;
+}
+
+LOGIC - Since we want a/b == c to be exactly true and not the vlaues brought down to int
+a/b == c  => a==b*c
+
+
+
+boolean solution(int a, int b, int c) {
+    return a + b == c || a - b == c || a * b == c || a / (b * 1.0) == c;
+}
+
+LOGIC - The expression "b * 1.0" is used to ensure that the division operation is performed using floating-point arithmetic, which would result in a decimal value. 
+If we didn't include the "1.0" multiplier, the division operation would be performed using integer arithmetic, which would result in a truncated integer value.
