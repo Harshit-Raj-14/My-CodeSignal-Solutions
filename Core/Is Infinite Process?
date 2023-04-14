@@ -1,0 +1,29 @@
+boolean solution(int a, int b) {
+    if(a>b) return true;  //always true
+    else if((b-a)%2==0) return false;   //-> non-infinte loop
+    return true;
+}
+
+LOGIC --- 
+3 cases
+I : a==b case the input won't enter the while loop as per given condtiion -> finite loop -> so return false 
+II : a>b case it will always be an infinte loop -> return true
+III : b-a % 2 ==0 will give us finite loop (by observation)
+the odd differnece never meets while the even does
+
+take a=0, and b=x;
+distance between a and b = x
+
+x : 0 1 2 3 4 5 6 7... (Here, b=x as well as b-a=x=distance) for simplicity
+A:  I I N I N I N I
+So if the differnece between numbers is one or even, then it is a non-infinte loop.
+
+I - > Infinite loop
+N -> Non-infinte loop
+
+
+boolean solution(int a, int b) {
+    return !(b>=a && (b-a)%2==0);           
+}
+
+link - https://app.codesignal.com/arcade/code-arcade/at-the-crossroads/aFF9HDm2Rsti9j5kc/drafts
