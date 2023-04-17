@@ -14,7 +14,8 @@ char solution(String s) {
     else return '_';
 }
 
-Note  : String.replace(char searchChar, char newChar)
+Note  : We take a seperate string temp, becuase we don't want to change the main string and cause discrepancy
+String.replace(char searchChar, char newChar)
 So, doing something like this would give error - temp=temp.replace(s.charAt(i),"");
 
 
@@ -35,3 +36,26 @@ char solution(String s) {
 
 NOTE : Dont do the mistake of looping in the count array in the second loop, that will destory the order of sequence of characters that are in string
 
+
+
+/* USING HASHMAP */
+char solution(String s) {
+    HashMap<Character,Integer> map = new HashMap<>();
+    for(int i=0;i<s.length();i++){
+        if(map.containsKey(s.charAt(i))){
+            map.put(s.charAt(i),map.get(s.charAt(i))+1);
+        }
+        else map.put(s.charAt(i),1);
+    }
+    //check the count in map
+    for(int i=0;i<s.length();i++){
+        if(map.get(s.charAt(i))==1) return s.charAt(i);
+    }
+    return '_';
+}
+
+NOTE: can also do this
+for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            map.put(c, count.getOrDefault(c, 0) + 1);
+        }
