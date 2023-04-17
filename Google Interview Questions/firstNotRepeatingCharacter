@@ -1,0 +1,37 @@
+/* USING HASHSET */
+char solution(String s) {
+    String temp = s;
+    HashSet<Character> set = new HashSet<>();
+    for(int i=0;i<s.length();i++){
+        if(!set.contains(s.charAt(i))){
+            set.add(s.charAt(i));
+        }
+        else{
+            temp=temp.replace(""+s.charAt(i),"");
+        }
+    }
+    if(temp.length()>0) return temp.charAt(0);
+    else return '_';
+}
+
+Note  : String.replace(char searchChar, char newChar)
+So, doing something like this would give error - temp=temp.replace(s.charAt(i),"");
+
+
+
+/* DYNAMIC PROGRAMMING */
+char solution(String s) {
+    int count[] = new int[26];
+    for(int i=0;i<s.length();i++){
+        int index = s.charAt(i) - 'a';
+        count[index]++;
+    }
+    for(int i=0;i<s.length();i++){
+        int index = s.charAt(i) - 'a';
+        if(count[index]==1) return s.charAt(i);       //return (char)(index+'a');
+    }
+    return '_';
+}
+
+NOTE : Dont do the mistake of looping in the count array in the second loop, that will destory the order of sequence of characters that are in string
+
