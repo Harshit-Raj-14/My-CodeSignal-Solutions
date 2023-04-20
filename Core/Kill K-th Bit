@@ -1,0 +1,30 @@
+int solution(int n, int k) {
+  return n & (~(1<<k-1)) ;
+}
+
+
+LOGIC
+We want to change the kth bit of the number to 0.
+So, we have to create a mask that makes the kth elemnt fro left to 0 while keeping all the rest the same.
+
+
+EXPLANATION : 
+The expression 1 << (k - 1) shifts the number 1 exactly k-1 times to the left so as an example for an 8 Bit number and k = 4:
+
+Before shift: 00000001
+After Shift: 00010000
+
+This marks the bit to kill. You see, 1 was shifted to the fourth position, as it was on position zero. 
+The operator ~ negates each bit, meaning 1 becomes 0 and 0 becomes 1. For our example:
+
+Before negation: 00010000
+After negation: 11101111
+
+At last, & executes a bit-wise AND on two operands. Let us say, we have a number n = 17, which is 00010001 in binary. Our example now is:
+
+00010001 & 11101111 = 00000001
+
+This is, because each bit of both numbers is compared by AND on the same position. Only positions, where both numbers have a 1 remain 1, all others are set to 0. 
+Consequently, only position zero remains 1.
+
+Overall your method int killKthBit(int n, int k) does exactly that with binary operators, it sets the bit on position k of number n to 0.
