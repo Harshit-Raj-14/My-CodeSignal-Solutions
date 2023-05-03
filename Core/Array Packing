@@ -1,0 +1,21 @@
+int solution(int[] a) {
+    int ans=0;
+    for(int i=0;i<a.length;i++){
+        ans = ans | a[i]<<8*i; 
+    }
+    return ans;
+}
+
+LOGIC - 
+We are asked to put arrays element in binary form's first 8 bits from starting on the rightmostpart of ans.
+So, what's happening here is
+Loop1 : ans | a[0]<<0
+Loop2 : ans | a[1]<<8
+Loop 3 : ans | a[2]<<16
+Loop 4 : ans | a[3]<<24
+If there had bene only three elmenet sthen the remaing part of ans would have been 0 bits. No problem.
+
+NOTE - That we have not been told that array has exactly 4 element sbut maximum 4elements and could be less.
+If it had bene that there were exactly four elements we could have done - return a[3]<<24 | a[2]<<16 | a[1]<<8 | a[0];
+
+
