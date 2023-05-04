@@ -1,0 +1,27 @@
+int solution(int a, int b) {
+    int count=0;
+    for(int i=a;i<=b;i++){
+        int temp=i;     //doing this so we do not actually modify i and break the loop
+        while(temp>0){
+            if((temp&1)==1) count++;  //counting no. of set bits
+            temp=temp>>1;
+        }
+    }
+    return count;
+}
+//TC - O((b - a + 1) * log(max(a, b)))
+The outer for loop iterates from a to b, which takes (b - a + 1) iterations. 
+For each iteration of the outer loop, the inner while loop takes log(max(a, b)) iterations since it right-shifts the temporary variable temp until it becomes zero.
+
+
+/* INBUILT METHOD */
+int solution(int a, int b) {
+    int t = 0;
+    for (int i = a; i<=b; i++) {
+        t += Integer.bitCount(i);
+    }
+    return t;
+}
+//TC- O((b - a + 1) * log(max(a, b)))
+The for loop iterates from a to b, which takes (b - a + 1) iterations. For each iteration, the Integer.bitCount method is called to count the number of set bits in the binary representation of the current value of i. 
+The time complexity of Integer.bitCount is O(log n), where n is the number of bits required to represent the input value.
